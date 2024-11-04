@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Bounce, toast} from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
  
@@ -10,6 +10,7 @@ const Login = () => {
     const [EmailError,setEmailError]=useState("")
     const [password,setpassword]=useState("")
     const [passwordError,setpasswordError]=useState("")
+    const Navigate=useNavigate()
 
 
 
@@ -42,6 +43,7 @@ const Login = () => {
                 theme: "dark",
                 transition: Bounce,
                 });
+                Navigate("/")
         }
     }
 
@@ -73,8 +75,7 @@ return (
                 <button onClick={handelSubmit} className="px-5 py-2 bg-[#F09319] rounded text-[18px] text-white active:scale-[1.1]" type="submit">Login</button>
                 </div>
                 </form>
-                <p className="text-[14px] font-bold text-white">Do Not Have an Account?{""}
-                    <span className="text-[16px] text-green-500">Register</span></p>
+                <p className="text-[14px] font-bold text-white">Do Not Have an Account?<Link to="/Register" className="text-[16px] text-green-500">Register</Link></p>
             </div>
             </div>
         </div>
